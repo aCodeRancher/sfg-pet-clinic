@@ -3,6 +3,7 @@ package guru.springframework.sfgpetclinic.services.map;
 import guru.springframework.sfgpetclinic.model.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import java.util.Set;
 
@@ -12,12 +13,18 @@ class OwnerMapServiceTest {
 
     OwnerMapService ownerMapService;
 
+    @Mock
+    PetTypeMapService petTypeMapService;
+
+    @Mock
+    PetMapService petMapService;
+
     final Long ownerId = 1L;
     final String lastName = "Smith";
 
     @BeforeEach
     void setUp() {
-        ownerMapService = new OwnerMapService(new PetTypeMapService(), new PetMapService());
+        ownerMapService = new OwnerMapService(petTypeMapService, petMapService);
 
         ownerMapService.save(Owner.builder().id(ownerId).lastName(lastName).build());
     }
