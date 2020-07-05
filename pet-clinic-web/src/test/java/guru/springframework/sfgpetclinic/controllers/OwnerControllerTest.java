@@ -84,10 +84,11 @@ class OwnerControllerTest {
                         Owner.builder().id(2l).build()));
 
         mockMvc.perform(get("/owners")
-                        .param("lastName",""))
+                .param("lastName", ""))
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/ownersList"))
-                .andExpect(model().attribute("selections", hasSize(2)));;
+                .andExpect(model().attribute("selections", hasSize(2)));
+        ;
     }
 
     @Test

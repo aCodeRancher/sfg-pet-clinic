@@ -7,11 +7,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith (MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)
 class OwnerMapServiceTest {
 
     //OwnerMapService ownerMapService;

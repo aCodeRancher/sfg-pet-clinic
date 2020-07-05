@@ -33,7 +33,7 @@ public class DataLoader implements CommandLineRunner {
 
         int count = petTypeService.findAll().size();
 
-        if (count == 0 ){
+        if (count == 0) {
             loadData();
         }
     }
@@ -60,18 +60,20 @@ public class DataLoader implements CommandLineRunner {
         Speciality savedDentistry = specialtyService.save(dentistry);
 
         Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
+        /*owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
         owner1.setAddress("123 Brickerel");
         owner1.setCity("Miami");
-        owner1.setTelephone("1231231234");
-
+        owner1.setTelephone("1231231234");*/
+        owner1 = Owner.builder().firstName("Michael").lastName("Weston").address("123 Brickerel").city("Miami")
+                .telephone("1231231234").build();
         Pet mikesPet = new Pet();
         mikesPet.setPetType(savedDogPetType);
         mikesPet.setOwner(owner1);
         mikesPet.setBirthDate(LocalDate.now());
         mikesPet.setName("Rosco");
         owner1.getPets().add(mikesPet);
+
 
         ownerService.save(owner1);
 
